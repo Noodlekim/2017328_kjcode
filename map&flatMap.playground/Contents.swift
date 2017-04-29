@@ -2,13 +2,11 @@
 
 import UIKit
 
-var str = "Hello, playground"
-
-let strings = ["1", "a", "2"]
+let strings: [Any?] = ["1", "a", "2", nil]
 
 // Map은 가공을 하는 역할
 // 아래는 Map후 혹시 모를 nil체크로 필터링 -> Optional까지 벗기기
-let numbers = strings.map { Int($0) } // Int형으로 캐스팅
+let numbers = strings.map({ $0 })
     .filter { $0 != nil } // nil체크
     .map { $0! } // Optional을 벗기기
 
@@ -24,22 +22,13 @@ print(numbers)
 //let flatMapped: [Int] = numbers.flatMap { str in Int(str) }
 //// [1, 2, 5]
 
-// - 기본적으로 nil을 체크를 해주는 듯..
-// -
-let numbers2 = strings.flatMap { Int($0) }
-    .map { "\($0)"}
-let numbers3 = strings.map { Int($0) }
-    .flatMap { $0}
-//    .flatMap { "\($0)"}
+// - 기본적으로 nil을 걸러서 반환해줌
+// - 배열에 담긴 녀석을 풀어서 담아줌. [[1,2,3], [4,5,6], ...]
 
+var flatVar = [[1,2,3], [4,5,6], [7,8,9]]
+let numbers2 = flatVar.flatMap({ $0 })
 print(numbers2)
-print(numbers3)
 
-// flatMap은 nil까지 체크를 해준다는 건가?
-
-//paths.flatMap { NSData(contentsOfFile: $0) } // [String] -> [NSData]
-//    .map { JSON(data: $0) }                         // [NSData] -> [JSON]
-//    .flatMap { Item.fromJSON($0) }                  // [JSON] -> [Item]
 
 
 // 번외편!
@@ -113,9 +102,9 @@ getObject(with: Param())
 //str.appendingFormat(<#T##format: String##String#>, <#T##arguments: CVarArg...##CVarArg#>)
 //str.capitalized(with: <#T##Locale?#>)
 
-
-let array = [Any]()
-array.append(<#T##newElement: Any##Any#>)
-array.append(contentsOf: <#T##S#>)
+//
+//let array = [Any]()
+//array.append(<#T##newElement: Any##Any#>)
+//array.append(contentsOf: <#T##S#>)
 
 
