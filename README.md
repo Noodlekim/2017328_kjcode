@@ -1,6 +1,6 @@
 # 2017429 Swift Generics
 
-## 場所：九段下 Data Soft
+## 장소：九段下 Data Soft
 
 |단체사진|세팅중인Jun|
 |---|---|
